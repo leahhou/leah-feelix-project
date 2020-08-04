@@ -1,0 +1,33 @@
+.header {
+  background-color: #246674;
+  color: #fff;
+  text-align: center;
+  padding: 6px;
+  margin: 0;
+  position: relative;
+}
+
+.header__h1 {
+  margin: 0;
+}
+
+.button {
+  padding: 8px 12px;
+  border-width: 0;
+  border-radius: 4px;
+  background-color: #ccc;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.button--primary {
+  background-color: #a9eacf;
+  color: #007043;
+}
+
+.header__button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
