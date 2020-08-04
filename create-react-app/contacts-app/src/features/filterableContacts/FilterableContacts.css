@@ -54,8 +54,8 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0px 2px 15px #ddd;
-  margin: 10px 10px 0 0px;
   padding: 16px;
+  margin: 10px 5px 0 5px;
 }
 
 .contact__avatar {
@@ -74,17 +74,19 @@
 
 .contact__details {
   text-align: center;
-  /* align-self: stretch; */
+  font-weight: bold;
+}
+.contact__title {
   font-weight: bold;
 }
 
 .contact__company {
-  text-align: center;
-  /* align-self: stretch; */
+  font-weight: normal;
 }
 
-.contact__meta li {
-  flex: 1;
+.contact__meta {
+  display: flex;
+  justify-content: space-around;
 }
 
 .contact__link {
@@ -95,7 +97,7 @@
   border-radius: 8px;
   padding: 4px;
   margin: 3px;
-  width: 100%;
+  width: 80%;
 }
 
 .contact__link__icon {
@@ -126,7 +128,6 @@
 
   .contact {
     flex-direction: row;
-    align-items: center;
   }
 
   .contact__avatar {
@@ -136,23 +137,22 @@
 
   .contact__details {
     text-align: left;
-    align-self: initial;
   }
 
-  .contact_link {
+  .contact__meta {
+    margin-left: 30px;
+  }
+
+  .contact__link {
     background-color: initial;
-    text-decoration: underline;
     padding: 0;
     margin-right: 8px;
     color: #666;
   }
 
-  .contact_link__label {
+  .contact__link__text {
     display: block;
-  }
-
-  .contact_link__icon svg {
-    width: 18px;
-    height: 18px;
+    color: blue;
+    font-weight: normal;
   }
 }
