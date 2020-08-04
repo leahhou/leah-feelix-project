@@ -8,3 +8,5 @@ ReactDOM.render(
   // </React.StrictMode>,
   document.getElementById("root")
 );
+
+//Q: when to use <React.StrictMode></React.StrictMode> ?

@@ -1,51 +1,40 @@
+/* eslint-disable no-unused-expressions */
+// Qs: why I need to disable eslint, otherwise I can't pass the props down ???
+// Qs: why foreach doesn't work in JSX? Reference: https://stackoverflow.com/questions/47442462/reactjs-map-works-but-foreach-doesnt
+// Qs: why map supposed to work, and also doesn't work
 import React from "react";
 import Contact from "./Contact";
+import PropTypes from "prop-types";
 
 class ContactList extends React.Component {
   render() {
-    const contacts = data;
+    const contacts = this.props.contacts;
+
     return (
-      <div>
-        {contacts.forEach(contact => {
-          // <Contact></Contact>;
-          console.log(contact.firstName);
-        })}
-      </div>
+      // <ul>
+      //   {contacts.map(contact => {
+      //     <li key={contact.id}>
+      //       <Contact contact={contact} />
+      //     </li>;
+      //   })}
+      // </ul>
+      <ul className="list">
+        <li className="list__item">
+          <Contact contact={contacts[0]}></Contact>
+        </li>
+        <li className="list__item">
+          <Contact contact={contacts[1]}></Contact>
+        </li>
+        <li className="list__item">
+          <Contact contact={contacts[2]}></Contact>
+        </li>
+      </ul>
     );
   }
 }
 
-export default ContactList;
+ContactList.propTypes = {
+  contacts: PropTypes.array
+};
 
-const data = [
-  {
-    id: 1,
-    image:
-      "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairStraight2&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=GraphicShirt&clotheColor=PastelGreen&graphicType=Diamond&eyeType=Happy&eyebrowType=RaisedExcitedNatural&mouthType=Twinkle&skinColor=Pale",
-    firstName: "Chaya",
-    lastName: "Philip",
-    companyName: "Trescothik and Co",
-    phone: "4112 232 089",
-    email: "markzandrapatterson@gmail.com"
-  },
-  {
-    id: 2,
-    image:
-      "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairFrizzle&accessoriesType=Prescription01&hairColor=Black&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=Overall&clotheColor=PastelRed&eyeType=Surprised&eyebrowType=Default&mouthType=Concerned&skinColor=Tanned",
-    firstName: "Gregory",
-    lastName: "Hill",
-    companyName: "Torrance Brothers",
-    phone: "4112 232 089",
-    email: "mark_patterson_newyork@gmail.com"
-  },
-  {
-    id: 3,
-    image:
-      "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairCurvy&accessoriesType=Round&hairColor=Blonde&facialHairType=Blank&clotheType=CollarSweater&clotheColor=Pink&eyeType=Close&eyebrowType=RaisedExcited&mouthType=Eating&skinColor=Light",
-    firstName: "Jamie",
-    lastName: "Mcnally",
-    companyName: "Chloe Associates",
-    phone: "4112 232 089",
-    email: "zandra.the.chandra@gmail.com"
-  }
-];
+export default ContactList;

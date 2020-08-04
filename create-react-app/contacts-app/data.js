@@ -1,6 +1,6 @@
 contacts = [
   {
-    id: 1, 
+    id: 1,
     image:
       "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairStraight2&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=GraphicShirt&clotheColor=PastelGreen&graphicType=Diamond&eyeType=Happy&eyebrowType=RaisedExcitedNatural&mouthType=Twinkle&skinColor=Pale",
     firstName: "Chaya",
@@ -20,7 +20,7 @@ contacts = [
     email: "mark_patterson_newyork@gmail.com"
   },
   {
-    id: 3, 
+    id: 3,
     image:
       "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairCurvy&accessoriesType=Round&hairColor=Blonde&facialHairType=Blank&clotheType=CollarSweater&clotheColor=Pink&eyeType=Close&eyebrowType=RaisedExcited&mouthType=Eating&skinColor=Light",
     firstName: "Jamie",
