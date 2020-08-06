@@ -60,7 +60,12 @@ class Contact extends React.Component {
 }
 
 Contact.propTypes = {
-  contact: PropTypes.object
+  contact: PropTypes.shape({
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+    email: PropTypes.string,
+    phone: PropTypes.string
+  }).isRequired
 };
 
 export default Contact;

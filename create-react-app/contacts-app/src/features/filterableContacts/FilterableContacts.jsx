@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import React from "react";
 import SearchBar from "./searchbar/SearchBar";
 import ContactList from "./contacts/ContactList";
