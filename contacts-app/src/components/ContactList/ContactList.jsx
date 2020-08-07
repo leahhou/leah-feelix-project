@@ -1,8 +1,6 @@
-// Qs: why I need to disable eslint, otherwise I can't pass the props down ???
-// Qs: why foreach doesn't work in JSX? Reference: https://stackoverflow.com/questions/47442462/reactjs-map-works-but-foreach-doesnt
-// Qs: why map supposed to work, and also doesn't work
 import React from "react";
-import Contact from "./Contact";
+import Contact from "./../Contact/Contact";
+import styles from "./ContactList.module.css";
 import PropTypes from "prop-types";
 
 class ContactList extends React.Component {
@@ -10,9 +8,9 @@ class ContactList extends React.Component {
     const contacts = this.props.contacts;
     console.log(contacts);
     return (
-      <ul>
+      <ul className={styles.list}>
         {contacts.map(contact => (
-          <li key={contact.id}>
+          <li key={contact.id} className={styles.list__item}>
             <Contact contact={contact} />
           </li>
         ))}

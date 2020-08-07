@@ -1,7 +1,7 @@
 import React from "react";
-import SearchBar from "./searchbar/SearchBar";
-import ContactList from "./contacts/ContactList";
-import "./FilterableContacts.css";
+import SearchBar from "./../SearchBar/SearchBar";
+import ContactList from "./../ContactList/ContactList";
+import styles from "./FilterableContacts.module.css";
 
 class FilterableContacts extends React.Component {
   render() {

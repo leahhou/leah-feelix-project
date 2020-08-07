@@ -1,15 +1,12 @@
 import React from "react";
-import Header from "../features/header/Header";
-import FilterableContacts from "./../features/filterableContacts/FilterableContacts";
-import "./App.css";
-import ContactList from "../features/filterableContacts/contacts/ContactList";
+import Header from "./../components/Header/Header";
+import FilterableContacts from "./../components/FilterableContacts/FilterableContacts";
+import styles from "./App.module.css";
 
 function App() {
   return (
-    <div className="page">
+    <div className={styles.page}>
       <Header></Header>
-      <Search></Search>
-      <ContactList></ContactList>
       <FilterableContacts></FilterableContacts>
     </div>
   );

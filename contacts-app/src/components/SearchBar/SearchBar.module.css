@@ -1,0 +1,20 @@
+.searchCard {
+  composes: card from "./../FilterableContacts/FilterableContacts.module.css";
+  align-items: flex-start;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.input > * {
+  display: block;
+}
+
+.input {
+  margin-bottom: 16px;
+}
+
+.input input {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

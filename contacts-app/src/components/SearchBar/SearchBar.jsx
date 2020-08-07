@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./SearchBar.module.css";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -15,10 +16,10 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div className="card card--search input">
+      <div className={styles.searchCard}>
         <label for="search">Search</label>
         <input
-          className="input"
+          className={styles.input}
           type="text"
           id="search"
           value={this.state.value}
