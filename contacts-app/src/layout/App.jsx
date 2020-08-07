@@ -6,7 +6,7 @@ import styles from "./App.module.css";
 function App() {
   return (
     <div className={styles.page}>
-      <Header></Header>
+      <Header type="primary"></Header>
       <FilterableContacts></FilterableContacts>
     </div>
   );

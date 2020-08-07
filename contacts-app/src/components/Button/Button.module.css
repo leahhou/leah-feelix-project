@@ -1,0 +1,21 @@
+.button {
+  padding: 8px 12px;
+  border-width: 0;
+  border-radius: 4px;
+  background-color: #ccc;
+  color: #333;
+}
+
+.primary {
+  background-color: #a9eacf;
+  color: #007043;
+  position: absolute;
+  top: 30px;
+  right: 15px;
+}
+
+@media (min-width: 800px) {
+  .primary {
+    position: static;
+  }
+}

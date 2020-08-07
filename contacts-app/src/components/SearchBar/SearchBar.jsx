@@ -16,8 +16,10 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div className={styles.searchCard}>
-        <label for="search">Search</label>
+      <div className={`${styles.card} ${styles["card--search"]}`}>
+        <label className={styles.input__label} for="search">
+          Search
+        </label>
         <input
           className={styles.input}
           type="text"

@@ -1,16 +1,13 @@
 import React from "react";
 import styles from "./Header.module.css";
+import Button from "./../Button/Button";
 
 class Header extends React.Component {
   render() {
     return (
-      <div className={styles.header}>
+      <div className={styles.base}>
         <h1>My contacts</h1>
-        <a
-          className={`${styles.button} ${styles.button__primary} ${styles.header__button}`}
-        >
-          Add
-        </a>
+        <Button type="primary" text="Add"></Button>
       </div>
     );
   }

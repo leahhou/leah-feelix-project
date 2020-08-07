@@ -1,4 +1,4 @@
-.header {
+.base {
   background-color: #246674;
   color: #fff;
   text-align: center;
@@ -7,27 +7,8 @@
   position: relative;
 }
 
-.button {
-  padding: 8px 12px;
-  border-width: 0;
-  border-radius: 4px;
-  background-color: #ccc;
-  color: #333;
-}
-
-.button__primary {
-  background-color: #a9eacf;
-  color: #007043;
-}
-
-.header__button {
-  position: absolute;
-  top: 30px;
-  right: 15px;
-}
-
 @media (min-width: 800px) {
-  .header {
+  .base {
     font-weight: normal;
     border-bottom: 3px solid #ddd;
     background-color: initial;
@@ -39,9 +20,5 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  .header__button {
-    position: static;
   }
 }
