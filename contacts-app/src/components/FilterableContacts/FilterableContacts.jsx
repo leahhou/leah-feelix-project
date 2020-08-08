@@ -3,11 +3,48 @@ import SearchBar from "./../SearchBar/SearchBar";
 import ContactList from "./../ContactList/ContactList";
 
 class FilterableContacts extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      filterText: ""
+    };
+  }
+
+  handleFilterChange = filterInput => {
+    this.setState({
+      filterText: filterInput
+    });
+  };
+
+  //Qs: why I cannot just call filteredContacts function in render()?
+  // filterContacts = () => {
+  //   const filtered = [];
+  //   data.forEach(contact => {
+  //     const test = contact.firstName.toLowerCase();
+  //     if (test.indexOf(this.state.filterText) === -1) {
+  //       return;
+  //     }
+  //     filtered.push(contact);
+  //     return filtered;
+  //   });
+  // };
+
   render() {
+    const filtered = [];
+    data.forEach(contact => {
+      const formattedContact = contact.firstName.toLowerCase();
+      if (formattedContact.indexOf(this.state.filterText) === -1) {
+        return;
+      }
+      filtered.push(contact);
+    });
     return (
       <div>
-        <SearchBar></SearchBar>
-        <ContactList contacts={data}></ContactList>
+        <SearchBar
+          filterText={this.state.filterText}
+          onFilterChange={this.handleFilterChange}
+        ></SearchBar>
+        <ContactList contacts={filtered}></ContactList>
       </div>
     );
   }

@@ -6,7 +6,6 @@ import PropTypes from "prop-types";
 class ContactList extends React.Component {
   render() {
     const contacts = this.props.contacts;
-    console.log(contacts);
     return (
       <ul className={styles.list}>
         {contacts.map(contact => (

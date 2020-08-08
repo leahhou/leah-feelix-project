@@ -2,17 +2,9 @@ import React from "react";
 import styles from "./SearchBar.module.css";
 
 class SearchBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: "" };
-
-    // This syntax ensures `this` is bound within handleClick.
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange = event => {
-    this.setState({ value: event.target.value });
-  };
+  // handleChange = event => {
+  //   this.props.onFilterChange(event.target.value);
+  // };
 
   render() {
     return (
@@ -24,8 +16,10 @@ class SearchBar extends React.Component {
           className={styles.input}
           type="text"
           id="search"
-          value={this.state.value}
-          onChange={this.handleChange}
+          value={this.props.filterText}
+          onChange={event => {
+            this.props.onFilterChange(event.target.value);
+          }}
         ></input>
       </div>
     );
