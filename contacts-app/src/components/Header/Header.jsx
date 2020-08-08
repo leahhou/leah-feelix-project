@@ -7,7 +7,7 @@ class Header extends React.Component {
     return (
       <div className={styles.base}>
         <h1>My contacts</h1>
-        <Button type="primary" text="Add"></Button>
+        <Button type={this.props.type} text={this.props.text}></Button>
       </div>
     );
   }

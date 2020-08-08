@@ -17,7 +17,7 @@ class FilterableContacts extends React.Component {
   };
 
   //Qs: why I cannot just call filteredContacts function in render()?
-  // filterContacts = () => {
+  // filterContacts = data => {
   //   const filtered = [];
   //   data.forEach(contact => {
   //     const test = contact.firstName.toLowerCase();
