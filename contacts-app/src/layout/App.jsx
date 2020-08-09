@@ -14,4 +14,8 @@ function App() {
   );
 }
 
+// App.propTypes = {
+//   newContact: PropTypes.Contact
+// };
+
 export default App;

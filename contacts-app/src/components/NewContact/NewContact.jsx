@@ -3,11 +3,24 @@ import Header from "./../Header/Header";
 import Form from "./../Form/Form";
 
 class NewContact extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      newContact: {}
+    };
+  }
+
+  handleAddContact = contactInput => {
+    this.setState({
+      newContact: { ...contactInput }
+    });
+  };
   render() {
     return (
       <>
         <Header type="inactive" text="Cancel" header="New Contact"></Header>
-        <Form></Form>
+        <Form onContactChange={this.handleAddContact}></Form>
+        {console.log(this.state.newContact)}
       </>
     );
   }
