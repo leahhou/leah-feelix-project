@@ -6,7 +6,7 @@ class NewContact extends React.Component {
   render() {
     return (
       <>
-        <Header type="inactive" text="Cancel"></Header>
+        <Header type="inactive" text="Cancel" header="New Contact"></Header>
         <Form></Form>
       </>
     );

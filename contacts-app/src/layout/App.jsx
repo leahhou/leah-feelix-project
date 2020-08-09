@@ -7,7 +7,7 @@ import styles from "./App.module.css";
 function App() {
   return (
     <div className={styles.page}>
-      <Header type="primary" text="Add"></Header>
+      <Header type="primary" text="Add" header="My Contacts"></Header>
       <FilterableContacts></FilterableContacts>
       <NewContact></NewContact>
     </div>
