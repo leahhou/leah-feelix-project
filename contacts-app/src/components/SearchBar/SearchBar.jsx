@@ -9,7 +9,7 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div className={`${styles.card} ${styles["card--search"]}`}>
-        <label className={styles.input__label} for="search">
+        <label className={styles.input__label} htmlFor="search">
           Search
         </label>
         <input

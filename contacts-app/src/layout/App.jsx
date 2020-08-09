@@ -17,12 +17,15 @@ class App extends React.Component {
       newContact: { ...contactInput }
     });
   };
+
   render() {
     return (
       <div className={styles.page}>
         <Header type="primary" text="Add" header="My Contacts"></Header>
         <FilterableContacts></FilterableContacts>
-        <NewContact newContact={this.addNewContact}></NewContact>
+        <NewContact addContact={this.addNewContact}></NewContact>
+        {/* Q: why I needs to click twice to update this.state.newContact in App */}
+        {this.state.newContact.firstName}
       </div>
     );
   }

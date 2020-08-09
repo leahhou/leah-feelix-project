@@ -15,6 +15,7 @@ class NewContact extends React.Component {
     this.setState({
       newContact: { ...this.state.newContact, ...contactInput }
     });
+    this.props.addContact(this.state.newContact);
   };
   render() {
     return (

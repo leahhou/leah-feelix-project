@@ -30,7 +30,7 @@ class Form extends React.Component {
     const form = this.state.newContact;
     return (
       <form className={`${styles.card} ${styles["card--form"]}`}>
-        <label for="firstName" className={styles.input__label}>
+        <label htmlFor="firstName" className={styles.input__label}>
           First name
         </label>
         <input
@@ -40,7 +40,7 @@ class Form extends React.Component {
           onChange={this.handleFormChange}
         ></input>
 
-        <label for="lastName" className={styles.input__label}>
+        <label htmlFor="lastName" className={styles.input__label}>
           Last name
         </label>
         <input
@@ -50,7 +50,7 @@ class Form extends React.Component {
           onChange={this.handleFormChange}
         ></input>
 
-        <label for="company" className={styles.input__label}>
+        <label htmlFor="company" className={styles.input__label}>
           Company
         </label>
         <input
@@ -60,7 +60,7 @@ class Form extends React.Component {
           onChange={this.handleFormChange}
         ></input>
 
-        <label for="phone" className={styles.input__label}>
+        <label htmlFor="phone" className={styles.input__label}>
           Phone number
         </label>
         <input
@@ -70,7 +70,7 @@ class Form extends React.Component {
           onChange={this.handleFormChange}
         ></input>
 
-        <label for="email" className={styles.input__label}>
+        <label htmlFor="email" className={styles.input__label}>
           Email
         </label>
         <input
