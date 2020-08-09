@@ -12,7 +12,7 @@ class NewContact extends React.Component {
 
   handleAddContact = contactInput => {
     this.setState({
-      newContact: { ...contactInput }
+      newContact: { ...this.state.newContact, ...contactInput }
     });
   };
   render() {

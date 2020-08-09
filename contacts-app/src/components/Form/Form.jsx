@@ -18,15 +18,13 @@ class Form extends React.Component {
   }
 
   handleFormChange = event => {
-    //Q1: why the input is out of sync when consol.log?
-    const original = this.state.newContact;
+    //Q1: why the input is out of sync when console.log?
     const update = {};
     update[event.target.id] = event.target.value;
     this.setState({
-      newContact: { ...original, ...update }
-      //Q2: why newContact is undefined with below syntax?
-      // newContact: { ...newContact, ...update }
+      newContact: { ...this.state.newContact, ...update }
     });
+    console.log(this.state.newContact);
   };
   render() {
     const form = this.state.newContact;
