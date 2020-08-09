@@ -11,7 +11,7 @@ class NewContact extends React.Component {
   }
 
   handleAddContact = (event, contactInput) => {
-    event.preventDefault();
+    event.preventDefault(); //this is to prevent refresh the page
     this.setState({
       newContact: { ...this.state.newContact, ...contactInput }
     });

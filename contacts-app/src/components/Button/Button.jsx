@@ -7,7 +7,10 @@ class Button extends React.Component {
     const type = this.props.type;
     const text = this.props.text;
     return (
-      <button className={classNames(styles.button, styles[type])}>
+      <button
+        onClick={this.props.handleClick}
+        className={classNames(styles.button, styles[type])}
+      >
         {text}
       </button>
     );

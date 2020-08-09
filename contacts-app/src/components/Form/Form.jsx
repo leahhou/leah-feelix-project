@@ -18,13 +18,13 @@ class Form extends React.Component {
   }
 
   handleFormChange = event => {
-    //Q1: why the input is out of sync when console.log?
     const update = {};
     update[event.target.id] = event.target.value;
     this.setState({
       newContact: { ...this.state.newContact, ...update }
     });
-    console.log(this.state.newContact);
+    //Q1: why the input is out of sync when console.log?
+    // console.log("🥳", this.state.newContact);
   };
   render() {
     const form = this.state.newContact;
@@ -80,16 +80,13 @@ class Form extends React.Component {
           onChange={this.handleFormChange}
         ></input>
 
-        <button
-          onClick={event => {
+        <Button
+          type="primary"
+          text="Save"
+          handleClick={event => {
             this.props.onContactChange(event, this.state.newContact);
           }}
-        >
-          save
-        </button>
-        {this.state.newContact.firstName}
-        {this.state.newContact.lastName}
-        {/* <Button type="primary" text="Save"></Button> */}
+        ></Button>
       </form>
     );
   }

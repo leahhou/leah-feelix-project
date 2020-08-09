@@ -4,14 +4,28 @@ import FilterableContacts from "./../components/FilterableContacts/FilterableCon
 import NewContact from "./../components/NewContact/NewContact";
 import styles from "./App.module.css";
 
-function App() {
-  return (
-    <div className={styles.page}>
-      <Header type="primary" text="Add" header="My Contacts"></Header>
-      <FilterableContacts></FilterableContacts>
-      <NewContact></NewContact>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      newContact: {}
+    };
+  }
+
+  addNewContact = contactInput => {
+    this.setState({
+      newContact: { ...contactInput }
+    });
+  };
+  render() {
+    return (
+      <div className={styles.page}>
+        <Header type="primary" text="Add" header="My Contacts"></Header>
+        <FilterableContacts></FilterableContacts>
+        <NewContact newContact={this.addNewContact}></NewContact>
+      </div>
+    );
+  }
 }
 
 // App.propTypes = {

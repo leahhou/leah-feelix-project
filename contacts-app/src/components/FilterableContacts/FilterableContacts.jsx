@@ -6,7 +6,8 @@ class FilterableContacts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      filterText: ""
+      filterText: "",
+      contactList: data
     };
   }
 
@@ -16,7 +17,6 @@ class FilterableContacts extends React.Component {
     });
   };
 
-  //Qs: why I cannot just call filteredContacts function in render()?
   // filterContacts = data => {
   //   const filtered = [];
   //   data.forEach(contact => {
@@ -29,6 +29,14 @@ class FilterableContacts extends React.Component {
   //   });
   // };
 
+  // componentDidMount() {
+  //   console.log("😳", this.props.newContact());
+  //   const updatedContacts = this.state.contactList;
+  //   this.setState({
+  //     contactList: this.state.contactList
+  //   });
+  // }
+
   render() {
     const filtered = [];
     data.forEach(contact => {
@@ -38,6 +46,8 @@ class FilterableContacts extends React.Component {
       }
       filtered.push(contact);
     });
+    //Qs: why I cannot just call filteredContacts function in render()?
+    // filtered = filterContacts(data);
     return (
       <div>
         <SearchBar
