@@ -29,17 +29,28 @@ class FilterableContacts extends React.Component {
   //   });
   // };
 
-  // componentDidMount() {
-  //   console.log("😳", this.props.newContact());
-  //   const updatedContacts = this.state.contactList;
-  //   this.setState({
-  //     contactList: this.state.contactList
-  //   });
-  // }
+  componentDidUpdate() {
+    if (this.props.newContact.firstName) {
+      //Q: how to set condition here to break infinite loop?
+      var updates = this.state.contactList;
+      if (this.state.contactList !== updates) {
+        this.setState({
+          contactList: [...this.state.contactList, this.props.newContact]
+        });
+        {
+          console.log("🥶", this.state.contactList);
+        }
+      }
+    }
+    // this.setState({
+    //   contactList: [...this.state.contactList, this.props.newContact]
+    // });
+  }
 
   render() {
     const filtered = [];
-    data.forEach(contact => {
+    const contactList = this.state.contactList;
+    contactList.forEach(contact => {
       const formattedContact = contact.firstName.toLowerCase();
       if (formattedContact.indexOf(this.state.filterText) === -1) {
         return;
@@ -54,6 +65,7 @@ class FilterableContacts extends React.Component {
           filterText={this.state.filterText}
           onFilterChange={this.handleFilterChange}
         ></SearchBar>
+        {this.state.contactList[3] && this.state.contactList[3].firstName}
         <ContactList contacts={filtered}></ContactList>
       </div>
     );

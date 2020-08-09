@@ -22,7 +22,9 @@ class App extends React.Component {
     return (
       <div className={styles.page}>
         <Header type="primary" text="Add" header="My Contacts"></Header>
-        <FilterableContacts></FilterableContacts>
+        <FilterableContacts
+          newContact={this.state.newContact}
+        ></FilterableContacts>
         <NewContact addContact={this.addNewContact}></NewContact>
         {/* Q: why I needs to click twice to update this.state.newContact in App */}
         {this.state.newContact.firstName}

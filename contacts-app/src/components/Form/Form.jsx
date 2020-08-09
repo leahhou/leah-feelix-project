@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "./../Button/Button";
 import styles from "./Form.module.css";
-import Contact from "../Contact/Contact";
 
 class Form extends React.Component {
   constructor(props) {
