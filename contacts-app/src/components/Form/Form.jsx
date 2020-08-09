@@ -79,6 +79,7 @@ class Form extends React.Component {
           onChange={this.handleFormChange}
         ></input>
 
+        {/* valiation of form input belongs to here */}
         <Button
           type="primary"
           text="Save"

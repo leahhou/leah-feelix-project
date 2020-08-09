@@ -17,48 +17,29 @@ class FilterableContacts extends React.Component {
     });
   };
 
-  // filterContacts = data => {
-  //   const filtered = [];
-  //   data.forEach(contact => {
-  //     const test = contact.firstName.toLowerCase();
-  //     if (test.indexOf(this.state.filterText) === -1) {
-  //       return;
-  //     }
-  //     filtered.push(contact);
-  //     return filtered;
-  //   });
-  // };
-
-  componentDidUpdate() {
-    if (this.props.newContact.firstName) {
-      //Q: how to set condition here to break infinite loop?
-      var updates = this.state.contactList;
-      if (this.state.contactList !== updates) {
-        this.setState({
-          contactList: [...this.state.contactList, this.props.newContact]
-        });
-        {
-          console.log("🥶", this.state.contactList);
-        }
-      }
-    }
-    // this.setState({
-    //   contactList: [...this.state.contactList, this.props.newContact]
-    // });
-  }
-
-  render() {
+  filterContacts = data => {
     const filtered = [];
-    const contactList = this.state.contactList;
-    contactList.forEach(contact => {
-      const formattedContact = contact.firstName.toLowerCase();
-      if (formattedContact.indexOf(this.state.filterText) === -1) {
+    data.forEach(contact => {
+      const test = contact.firstName.toLowerCase();
+      if (test.indexOf(this.state.filterText) === -1) {
         return;
       }
       filtered.push(contact);
     });
-    //Qs: why I cannot just call filteredContacts function in render()?
-    // filtered = filterContacts(data);
+    return filtered;
+  };
+
+  componentDidUpdate(oldProps) {
+    if (this.props.newContact !== oldProps.newContact) {
+      this.setState({
+        contactList: [...this.state.contactList, this.props.newContact]
+      });
+      console.log("🥶", this.state.contactList);
+    }
+  }
+
+  render() {
+    const filtered = this.filterContacts(data);
     return (
       <div>
         <SearchBar
