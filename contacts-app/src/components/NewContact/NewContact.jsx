@@ -10,7 +10,8 @@ class NewContact extends React.Component {
     };
   }
 
-  handleAddContact = contactInput => {
+  handleAddContact = (event, contactInput) => {
+    event.preventDefault();
     this.setState({
       newContact: { ...this.state.newContact, ...contactInput }
     });
@@ -20,7 +21,7 @@ class NewContact extends React.Component {
       <>
         <Header type="inactive" text="Cancel" header="New Contact"></Header>
         <Form onContactChange={this.handleAddContact}></Form>
-        {console.log(this.state.newContact)}
+        {console.log("🤯", this.state.newContact)}
       </>
     );
   }

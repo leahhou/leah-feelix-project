@@ -81,8 +81,8 @@ class Form extends React.Component {
         ></input>
 
         <button
-          onClick={() => {
-            this.props.onContactChange(this.state.newContact);
+          onClick={event => {
+            this.props.onContactChange(event, this.state.newContact);
           }}
         >
           save
