@@ -1,16 +1,16 @@
 import React from "react";
 import Header from "./../Header/Header";
-import Form from "./../Form/Form";
+import ContactForm from "./../ContactForm/ContactForm";
 
 class NewContact extends React.Component {
   render() {
     return (
       <>
         <Header type="inactive" text="Cancel" header="New Contact"></Header>
-        <Form
+        <ContactForm
           addNewContact={this.props.addNewContact}
           contactId={this.props.contactId}
-        ></Form>
+        ></ContactForm>
       </>
     );
   }

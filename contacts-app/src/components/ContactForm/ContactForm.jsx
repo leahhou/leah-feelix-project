@@ -1,8 +1,9 @@
 import React from "react";
-import Button from "./../Button/Button";
-import styles from "./Form.module.css";
+import Button from "../Button/Button";
+import Input from "../Input/Input";
+import styles from "./ContactForm.module.css";
 
-class Form extends React.Component {
+class ContactForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,55 +31,40 @@ class Form extends React.Component {
   render() {
     return (
       <form className={`${styles.card} ${styles["card--form"]}`}>
-        <label htmlFor="firstName" className={styles.input__label}>
-          First name
-        </label>
-        <input
+        <Input
+          htmlFor="firstName"
           type="text"
-          id="firstName"
-          className={styles.input}
-          onChange={this.handleInputChange}
-        ></input>
+          label="First Name"
+          handleInputChange={this.handleInputChange}
+        ></Input>
 
-        <label htmlFor="lastName" className={styles.input__label}>
-          Last name
-        </label>
-        <input
+        <Input
+          htmlFor="lastName"
           type="text"
-          id="lastName"
-          className={styles.input}
-          onChange={this.handleInputChange}
-        ></input>
+          label="Last Name"
+          handleInputChange={this.handleInputChange}
+        ></Input>
 
-        <label htmlFor="companyName" className={styles.input__label}>
-          Company
-        </label>
-        <input
+        <Input
+          htmlFor="companyName"
           type="text"
-          id="companyName"
-          className={styles.input}
-          onChange={this.handleInputChange}
-        ></input>
+          label="Company"
+          handleInputChange={this.handleInputChange}
+        ></Input>
 
-        <label htmlFor="phone" className={styles.input__label}>
-          Phone number
-        </label>
-        <input
+        <Input
+          htmlFor="phone"
           type="text"
-          id="phone"
-          className={styles.input}
-          onChange={this.handleInputChange}
-        ></input>
+          label="Phone number"
+          handleInputChange={this.handleInputChange}
+        ></Input>
 
-        <label htmlFor="email" className={styles.input__label}>
-          Email
-        </label>
-        <input
+        <Input
+          htmlFor="email"
           type="text"
-          id="email"
-          className={styles.input}
-          onChange={this.handleInputChange}
-        ></input>
+          label="Email"
+          handleInputChange={this.handleInputChange}
+        ></Input>
 
         {/* valiation of form input belongs to here */}
         <Button
@@ -92,7 +78,7 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+export default ContactForm;
 
 const defaultImage =
   "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShaggyMullet&accessoriesType=Prescription02&hairColor=Brown&facialHairType=Blank&clotheType=GraphicShirt&clotheColor=White&graphicType=Resist&eyeType=Wink&eyebrowType=Default&mouthType=Smile&skinColor=Light";
