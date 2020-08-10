@@ -13,6 +13,7 @@ class App extends React.Component {
   }
 
   addNewContact = newContact => {
+    // newContact.id = this.state.contactList.length + 1;
     this.setState({
       contactList: [...this.state.contactList, newContact]
     });

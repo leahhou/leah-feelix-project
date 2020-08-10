@@ -7,9 +7,10 @@ class Form extends React.Component {
     super(props);
     this.state = {
       newContact: {
+        image: defaultImage,
         firstName: "",
         lastName: "",
-        company: "",
+        companyName: "",
         phone: "",
         email: ""
       }
@@ -48,12 +49,12 @@ class Form extends React.Component {
           onChange={this.handleInputChange}
         ></input>
 
-        <label htmlFor="company" className={styles.input__label}>
+        <label htmlFor="companyName" className={styles.input__label}>
           Company
         </label>
         <input
           type="text"
-          id="company"
+          id="companyName"
           className={styles.input}
           onChange={this.handleInputChange}
         ></input>
@@ -91,3 +92,6 @@ class Form extends React.Component {
 }
 
 export default Form;
+
+const defaultImage =
+  "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShaggyMullet&accessoriesType=Prescription02&hairColor=Brown&facialHairType=Blank&clotheType=GraphicShirt&clotheColor=White&graphicType=Resist&eyeType=Wink&eyebrowType=Default&mouthType=Smile&skinColor=Light";
