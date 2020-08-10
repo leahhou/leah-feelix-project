@@ -25,8 +25,11 @@ class ContactForm extends React.Component {
     this.setState({
       newContact: { ...this.state.newContact, ...update }
     });
-    //Q1: why the input is out of sync when console.log?
-    // console.log("🥳", this.state.newContact);
+  };
+
+  handleAddContact = event => {
+    event.preventDefault(); // to prevent refresh the page
+    this.props.addNewContact(this.state.newContact);
   };
   render() {
     return (
@@ -65,13 +68,11 @@ class ContactForm extends React.Component {
           label="Email"
           handleInputChange={this.handleInputChange}
         ></Input>
-
         {/* valiation of form input belongs to here */}
         <Button
           type="primary"
           text="Save"
-          addNewContact={this.props.addNewContact}
-          newContact={this.state.newContact}
+          handleClick={this.handleAddContact}
         ></Button>
       </form>
     );
