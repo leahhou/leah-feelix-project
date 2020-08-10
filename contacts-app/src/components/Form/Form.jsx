@@ -16,7 +16,7 @@ class Form extends React.Component {
     };
   }
 
-  handleFormChange = event => {
+  handleInputChange = event => {
     const update = {};
     update[event.target.id] = event.target.value;
     this.setState({
@@ -36,7 +36,7 @@ class Form extends React.Component {
           type="text"
           id="firstName"
           className={styles.input}
-          onChange={this.handleFormChange}
+          onChange={this.handleInputChange}
         ></input>
 
         <label htmlFor="lastName" className={styles.input__label}>
@@ -46,7 +46,7 @@ class Form extends React.Component {
           type="text"
           id="lastName"
           className={styles.input}
-          onChange={this.handleFormChange}
+          onChange={this.handleInputChange}
         ></input>
 
         <label htmlFor="company" className={styles.input__label}>
@@ -56,7 +56,7 @@ class Form extends React.Component {
           type="text"
           id="company"
           className={styles.input}
-          onChange={this.handleFormChange}
+          onChange={this.handleInputChange}
         ></input>
 
         <label htmlFor="phone" className={styles.input__label}>
@@ -66,7 +66,7 @@ class Form extends React.Component {
           type="text"
           id="phone"
           className={styles.input}
-          onChange={this.handleFormChange}
+          onChange={this.handleInputChange}
         ></input>
 
         <label htmlFor="email" className={styles.input__label}>
@@ -76,7 +76,7 @@ class Form extends React.Component {
           type="text"
           id="email"
           className={styles.input}
-          onChange={this.handleFormChange}
+          onChange={this.handleInputChange}
         ></input>
 
         {/* valiation of form input belongs to here */}

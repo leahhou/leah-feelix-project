@@ -7,7 +7,7 @@ class FilterableContacts extends React.Component {
     super(props);
     this.state = {
       filterText: "",
-      contactList: data
+      contactList: {}
     };
   }
 
@@ -17,11 +17,11 @@ class FilterableContacts extends React.Component {
     });
   };
 
-  filterContacts = data => {
+  filterContacts = list => {
     const filtered = [];
-    data.forEach(contact => {
-      const test = contact.firstName.toLowerCase();
-      if (test.indexOf(this.state.filterText) === -1) {
+    list.forEach(contact => {
+      const filterContact = contact.firstName.toLowerCase();
+      if (filterContact.indexOf(this.state.filterText) === -1) {
         return;
       }
       filtered.push(contact);
@@ -29,17 +29,8 @@ class FilterableContacts extends React.Component {
     return filtered;
   };
 
-  componentDidUpdate(oldProps) {
-    if (this.props.newContact !== oldProps.newContact) {
-      this.setState({
-        contactList: [...this.state.contactList, this.props.newContact]
-      });
-      console.log("🥶", this.state.contactList);
-    }
-  }
-
   render() {
-    const filtered = this.filterContacts(data);
+    const filtered = this.filterContacts(this.props.contactList);
     return (
       <div>
         <SearchBar
@@ -54,36 +45,3 @@ class FilterableContacts extends React.Component {
 }
 
 export default FilterableContacts;
-
-const data = [
-  {
-    id: 1,
-    image:
-      "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairStraight2&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=GraphicShirt&clotheColor=PastelGreen&graphicType=Diamond&eyeType=Happy&eyebrowType=RaisedExcitedNatural&mouthType=Twinkle&skinColor=Pale",
-    firstName: "Chaya",
-    lastName: "Philip",
-    companyName: "Trescothik and Co",
-    phone: "4112 232 089",
-    email: "markzandrapatterson@gmail.com"
-  },
-  {
-    id: 2,
-    image:
-      "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairFrizzle&accessoriesType=Prescription01&hairColor=Black&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=Overall&clotheColor=PastelRed&eyeType=Surprised&eyebrowType=Default&mouthType=Concerned&skinColor=Tanned",
-    firstName: "Gregory",
-    lastName: "Hill",
-    companyName: "Torrance Brothers",
-    phone: "4112 232 089",
-    email: "mark_patterson_newyork@gmail.com"
-  },
-  {
-    id: 3,
-    image:
-      "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairCurvy&accessoriesType=Round&hairColor=Blonde&facialHairType=Blank&clotheType=CollarSweater&clotheColor=Pink&eyeType=Close&eyebrowType=RaisedExcited&mouthType=Eating&skinColor=Light",
-    firstName: "Jamie",
-    lastName: "Mcnally",
-    companyName: "Chloe Associates",
-    phone: "4112 232 089",
-    email: "zandra.the.chandra@gmail.com"
-  }
-];
