@@ -37,7 +37,7 @@ class FilterableContacts extends React.Component {
           filterText={this.state.filterText}
           onFilterChange={this.handleFilterChange}
         ></SearchBar>
-        {this.state.contactList[3] && this.state.contactList[3].firstName}
+        {filtered[3] && filtered[3].firstName}
         <ContactList contacts={filtered}></ContactList>
       </div>
     );

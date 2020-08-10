@@ -8,37 +8,24 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      newContact: {},
       contactList: data
     };
   }
 
-  addNewContact = contactInput => {
+  addNewContact = newContact => {
     this.setState({
-      contactList: [...this.state.contactList, contactInput]
+      contactList: [...this.state.contactList, newContact]
     });
   };
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (this.state.newContact !== prevState.newContact) {
-  //     this.setState({
-  //       contactList: [...this.state.contactList, this.props.newContact]
-  //     });
-  //     console.log("🥶", this.state.contactList);
-  //   }
-  // }
 
   render() {
     return (
       <div className={styles.page}>
         <Header type="primary" text="Add" header="My Contacts"></Header>
         <FilterableContacts
-          newContact={this.state.newContact}
           contactList={this.state.contactList}
         ></FilterableContacts>
         <NewContact addNewContact={this.addNewContact}></NewContact>
-        {/* Q: why I needs to click twice to update this.state.newContact in App */}
-        {this.state.newContact.firstName}
       </div>
     );
   }
