@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "./../Header/Header";
 import SearchBar from "./../SearchBar/SearchBar";
 import ContactList from "./../ContactList/ContactList";
 
@@ -6,8 +7,7 @@ class FilterableContacts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      filterText: "",
-      contactList: {}
+      filterText: ""
     };
   }
 
@@ -30,15 +30,15 @@ class FilterableContacts extends React.Component {
   };
 
   render() {
-    const filtered = this.filterContacts(this.props.contactList);
+    const filteredList = this.filterContacts(this.props.contactList);
     return (
       <div>
+        <Header type="primary" text="Add" header="My Contacts"></Header>
         <SearchBar
           filterText={this.state.filterText}
           onFilterChange={this.handleFilterChange}
         ></SearchBar>
-        {filtered[3] && filtered[3].firstName}
-        <ContactList contacts={filtered}></ContactList>
+        <ContactList contacts={filteredList}></ContactList>
       </div>
     );
   }

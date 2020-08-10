@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "./../components/Header/Header";
 import FilterableContacts from "./../components/FilterableContacts/FilterableContacts";
 import NewContact from "./../components/NewContact/NewContact";
 import styles from "./App.module.css";
@@ -13,7 +12,6 @@ class App extends React.Component {
   }
 
   addNewContact = newContact => {
-    // newContact.id = this.state.contactList.length + 1;
     this.setState({
       contactList: [...this.state.contactList, newContact]
     });
@@ -22,11 +20,14 @@ class App extends React.Component {
   render() {
     return (
       <div className={styles.page}>
-        <Header type="primary" text="Add" header="My Contacts"></Header>
         <FilterableContacts
           contactList={this.state.contactList}
         ></FilterableContacts>
-        <NewContact addNewContact={this.addNewContact}></NewContact>
+        {console.log(this.state.contactList)}
+        <NewContact
+          addNewContact={this.addNewContact}
+          contactId={this.state.contactList.length + 1}
+        ></NewContact>
       </div>
     );
   }

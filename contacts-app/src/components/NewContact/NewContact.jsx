@@ -7,7 +7,10 @@ class NewContact extends React.Component {
     return (
       <>
         <Header type="inactive" text="Cancel" header="New Contact"></Header>
-        <Form addNewContact={this.props.addNewContact}></Form>
+        <Form
+          addNewContact={this.props.addNewContact}
+          contactId={this.props.contactId}
+        ></Form>
       </>
     );
   }

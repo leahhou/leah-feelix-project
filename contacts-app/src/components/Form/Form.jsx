@@ -7,6 +7,7 @@ class Form extends React.Component {
     super(props);
     this.state = {
       newContact: {
+        id: this.props.contactId,
         image: defaultImage,
         firstName: "",
         lastName: "",
