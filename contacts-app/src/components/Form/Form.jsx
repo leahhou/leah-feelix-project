@@ -26,7 +26,6 @@ class Form extends React.Component {
     // console.log("🥳", this.state.newContact);
   };
   render() {
-    const form = this.state.newContact;
     return (
       <form className={`${styles.card} ${styles["card--form"]}`}>
         <label htmlFor="firstName" className={styles.input__label}>
@@ -83,9 +82,8 @@ class Form extends React.Component {
         <Button
           type="primary"
           text="Save"
-          handleClick={event => {
-            this.props.onContactChange(event, this.state.newContact);
-          }}
+          addNewContact={this.props.addNewContact}
+          newContact={this.state.newContact}
         ></Button>
       </form>
     );
