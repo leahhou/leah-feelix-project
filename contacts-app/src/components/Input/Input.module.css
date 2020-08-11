@@ -1,0 +1,11 @@
+.input__label {
+  font-size: 15px;
+}
+
+.input {
+  margin-bottom: 16px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 60%;
+}

@@ -1,0 +1,103 @@
+.contact {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 15px #ddd;
+  padding: 16px;
+  margin: 10px 5px 0 5px;
+}
+
+.contact__avatar {
+  margin: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  background-color: aqua;
+  margin-bottom: 6px;
+}
+
+.contact__details {
+  text-align: center;
+  font-weight: bold;
+}
+.contact__details__name {
+  font-weight: bold;
+}
+
+.contact__details__company {
+  font-weight: normal;
+}
+
+.contact__details__meta {
+  display: flex;
+  justify-content: space-around;
+}
+
+.meta__link {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  background-color: #ebeef1;
+  border-radius: 8px;
+  padding: 4px;
+  margin: 3px;
+  width: 80%;
+}
+
+.meta__link__icon {
+  color: #666;
+}
+
+.meta__link__text {
+  border-bottom: 1px solid;
+  display: none;
+}
+
+.meta__link__icon svg {
+  fill: currentColor;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .card > * {
+    display: flex;
+    flex-direction: column;
+    width: 36%;
+  }
+
+  .contact {
+    flex-direction: row;
+  }
+
+  .contact__avatar {
+    margin-right: 16px;
+    margin-bottom: 0;
+  }
+
+  .contact__details {
+    text-align: left;
+  }
+
+  .contact__meta {
+    margin-left: 30px;
+  }
+
+  .meta__link {
+    background-color: initial;
+    padding: 0;
+    color: #666;
+    width: auto;
+    margin-left: 0;
+  }
+  .meta__link__icon {
+    margin-right: 8px;
+  }
+  .meta__link__text {
+    display: block;
+    color: blue;
+    font-weight: normal;
+    margin-right: 5px;
+  }
+}
