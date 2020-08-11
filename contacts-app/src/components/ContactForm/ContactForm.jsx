@@ -29,8 +29,8 @@ class ContactForm extends React.Component {
   handleAddContact = event => {
     event.preventDefault(); // to prevent refresh the page
     this.props.addNewContact({
-      id: this.props.contactId,
-      ...this.state.newContact
+      ...this.state.newContact,
+      id: this.props.contactId
     });
   };
   render() {
