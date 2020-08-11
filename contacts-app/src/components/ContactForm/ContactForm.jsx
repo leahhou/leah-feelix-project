@@ -8,7 +8,6 @@ class ContactForm extends React.Component {
     super(props);
     this.state = {
       newContact: {
-        id: this.props.contactId,
         image: defaultImage,
         firstName: "",
         lastName: "",
@@ -29,7 +28,10 @@ class ContactForm extends React.Component {
 
   handleAddContact = event => {
     event.preventDefault(); // to prevent refresh the page
-    this.props.addNewContact(this.state.newContact);
+    this.props.addNewContact({
+      id: this.props.contactId,
+      ...this.state.newContact
+    });
   };
   render() {
     return (
