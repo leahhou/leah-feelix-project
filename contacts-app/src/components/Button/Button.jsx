@@ -11,6 +11,7 @@ class Button extends React.Component {
         onClick={event => {
           this.props.handleClick(event);
         }}
+        name={text}
         className={classNames(styles.button, styles[type])}
       >
         {text}

@@ -10,7 +10,7 @@ class NewContact extends React.Component {
           type="inactive"
           text="Cancel"
           header="New Contact"
-          showContactList={this.props.showContactList}
+          showContent={this.props.showContent}
         ></Header>
         <ContactForm
           addNewContact={this.props.addNewContact}

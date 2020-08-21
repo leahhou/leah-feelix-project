@@ -37,7 +37,7 @@ class FilterableContacts extends React.Component {
           type="primary"
           text="Add"
           header="My Contacts"
-          showContactForm={this.props.showContactForm}
+          showContent={this.props.showContent}
         ></Header>
         <SearchBar
           filterText={this.state.filterText}

@@ -11,44 +11,39 @@ class App extends React.Component {
     super(props);
     this.state = {
       contactList: data,
-      invisibleContactList: true,
-      visibleContactForm: false
+      invisible: false
     };
   }
 
   addNewContact = newContact => {
     this.setState({
-      contactList: [...this.state.contactList, newContact]
+      contactList: [...this.state.contactList, newContact],
+      invisible: false
     });
   };
 
-  showContactForm = () => {
+  showContent = show => {
+    const showContactForm = show.target.name === "Add";
+    console.log(show.target);
     this.setState({
-      invisibleContactList: false,
-      visibleContactForm: true
-    });
-  };
-  showContactList = () => {
-    this.setState({
-      invisibleContactList: true,
-      visibleContactForm: false
+      invisible: showContactForm
     });
   };
 
   render() {
     return (
       <div className={styles.page}>
-        {this.state.invisibleContactList === true && (
+        {!this.state.invisible && (
           <FilterableContacts
             contactList={this.state.contactList}
-            showContactForm={this.showContactForm}
+            showContent={this.showContent}
           ></FilterableContacts>
         )}
-        {this.state.visibleContactForm === true && (
+        {this.state.invisible && (
           <NewContact
             addNewContact={this.addNewContact}
             contactId={this.state.contactList.length + 1}
-            showContactList={this.showContactList}
+            showContent={this.showContent}
           ></NewContact>
         )}
       </div>

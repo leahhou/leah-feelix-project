@@ -13,7 +13,8 @@ class Header extends React.Component {
         <Button
           type={this.props.type}
           text={this.props.text}
-          handleClick={this.props.showContactForm || this.props.showContactList}
+          show={this.props.show}
+          handleClick={this.props.showContent}
         ></Button>
       </div>
     );
