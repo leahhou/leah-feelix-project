@@ -22,11 +22,10 @@ class App extends React.Component {
     });
   };
 
-  showContent = show => {
-    const showContactForm = show.target.name === "Add";
-    console.log(show.target);
+  showContent = event => {
+    const hideContactList = event.target.name === "Add";
     this.setState({
-      invisible: showContactForm
+      invisible: hideContactList
     });
   };
 
