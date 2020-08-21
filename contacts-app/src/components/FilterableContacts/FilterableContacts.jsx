@@ -33,7 +33,12 @@ class FilterableContacts extends React.Component {
     const filteredList = this.filterContacts(this.props.contactList);
     return (
       <div>
-        <Header type="primary" text="Add" header="My Contacts"></Header>
+        <Header
+          type="primary"
+          text="Add"
+          header="My Contacts"
+          showContactForm={this.props.showContactForm}
+        ></Header>
         <SearchBar
           filterText={this.state.filterText}
           onFilterChange={this.handleFilterChange}
