@@ -40,20 +40,35 @@ class ContactForm extends React.Component {
 
   validateContactForm() {
     const { firstName, lastName, email } = this.state.newContact;
-
-    if (firstName.trim() === "" || lastName.trim() === "") {
+    const isEmailInvalid = /^\S+@\S+\.\S+$/.exec(email);
+    if (firstName.trim() === "") {
       const invalidFirstName = document.getElementsByClassName("firstName");
-      const invalidLastName = document.getElementsByClassName("lastName");
       this.displayRequiredFieldMessage(invalidFirstName[0]);
+      return false;
+    }
+    if (lastName.trim() === "") {
+      const invalidLastName = document.getElementsByClassName("lastName");
       this.displayRequiredFieldMessage(invalidLastName[0]);
       return false;
     }
-    const isEmailInvalid = /^\S+@\S+\.\S+$/.exec(email);
     if (isEmailInvalid === null) {
       const invalidEmail = document.getElementsByClassName("email");
       invalidEmail[0].innerHTML = "Email is in invalid form. ";
       return false;
     }
+    // if (
+    //   firstName.trim() === "" ||
+    //   lastName.trim() === "" ||
+    //   isEmailInvalid === null
+    // ) {
+    //   const invalidFirstName = document.getElementsByClassName("firstName");
+    //   const invalidLastName = document.getElementsByClassName("lastName");
+    //   const invalidEmail = document.getElementsByClassName("email");
+    //   this.displayRequiredFieldMessage(invalidFirstName[0]);
+    //   this.displayRequiredFieldMessage(invalidLastName[0]);
+    //   invalidEmail[0].innerHTML = "Email is in invalid form. ";
+    //   return false;
+    // }
     return true;
   }
 
