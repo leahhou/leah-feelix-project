@@ -29,11 +29,38 @@ class ContactForm extends React.Component {
 
   handleAddContact = event => {
     event.preventDefault(); // to prevent refresh the page
-    this.props.addNewContact({
-      ...this.state.newContact,
-      id: this.props.contactId
-    });
+    const validated = this.validateContactForm();
+    // const validated = true;
+    validated &&
+      this.props.addNewContact({
+        ...this.state.newContact,
+        id: this.props.contactId
+      });
   };
+
+  validateContactForm() {
+    const { firstName, lastName, email } = this.state.newContact;
+
+    if (firstName.trim() === "" || lastName.trim() === "") {
+      const invalidFirstName = document.getElementsByClassName("firstName");
+      const invalidLastName = document.getElementsByClassName("lastName");
+      this.displayRequiredFieldMessage(invalidFirstName[0]);
+      this.displayRequiredFieldMessage(invalidLastName[0]);
+      return false;
+    }
+    const isEmailInvalid = /^\S+@\S+\.\S+$/.exec(email);
+    if (isEmailInvalid === null) {
+      const invalidEmail = document.getElementsByClassName("email");
+      invalidEmail[0].innerHTML = "Email is in invalid form. ";
+      return false;
+    }
+    return true;
+  }
+
+  displayRequiredFieldMessage(element) {
+    element.innerHTML = "This field cannot be empty.";
+  }
+
   render() {
     return (
       <form className={`${styles.card} ${styles["card--form"]}`}>
@@ -60,18 +87,18 @@ class ContactForm extends React.Component {
 
         <Input
           htmlFor="phone"
-          type="text"
+          type="tel"
           label="Phone number"
           handleInputChange={this.handleInputChange}
         ></Input>
 
         <Input
           htmlFor="email"
-          type="text"
+          type="email"
           label="Email"
           handleInputChange={this.handleInputChange}
         ></Input>
-        {/* valiation of form input belongs to here */}
+        {/* <Input type="submit" value="save"></Input> */}
         <Button
           type="primary"
           text="Save"
@@ -85,4 +112,3 @@ class ContactForm extends React.Component {
 export default ContactForm;
 
 const defaultImage = avatar1;
-// "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShaggyMullet&accessoriesType=Prescription02&hairColor=Brown&facialHairType=Blank&clotheType=GraphicShirt&clotheColor=White&graphicType=Resist&eyeType=Wink&eyebrowType=Default&mouthType=Smile&skinColor=Light";

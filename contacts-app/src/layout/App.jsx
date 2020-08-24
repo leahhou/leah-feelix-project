@@ -56,7 +56,6 @@ const data = [
   {
     id: 1,
     image: avatar1,
-    // "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairStraight2&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=GraphicShirt&clotheColor=PastelGreen&graphicType=Diamond&eyeType=Happy&eyebrowType=RaisedExcitedNatural&mouthType=Twinkle&skinColor=Pale",
     firstName: "Chaya",
     lastName: "Philip",
     companyName: "Trescothik and Co",
@@ -66,7 +65,6 @@ const data = [
   {
     id: 2,
     image: avatar2,
-    // "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairFrizzle&accessoriesType=Prescription01&hairColor=Black&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=Overall&clotheColor=PastelRed&eyeType=Surprised&eyebrowType=Default&mouthType=Concerned&skinColor=Tanned",
     firstName: "Gregory",
     lastName: "Hill",
     companyName: "Torrance Brothers",
@@ -76,7 +74,6 @@ const data = [
   {
     id: 3,
     image: avatar3,
-    // "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairCurvy&accessoriesType=Round&hairColor=Blonde&facialHairType=Blank&clotheType=CollarSweater&clotheColor=Pink&eyeType=Close&eyebrowType=RaisedExcited&mouthType=Eating&skinColor=Light",
     firstName: "Jamie",
     lastName: "Mcnally",
     companyName: "Chloe Associates",

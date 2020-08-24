@@ -17,7 +17,9 @@ class Input extends React.Component {
           id={id}
           className={styles.input}
           onChange={this.props.handleInputChange}
+          value={this.props.value}
         ></input>
+        <span className={id}></span>
       </>
     );
   }
