@@ -11,7 +11,7 @@ class Header extends React.Component {
       <div className={styles.base}>
         <h1>{this.props.header}</h1>
         <Button
-          type={this.props.type}
+          buttonType={this.props.type}
           text={this.props.text}
           show={this.props.show}
           handleClick={this.props.showContent}

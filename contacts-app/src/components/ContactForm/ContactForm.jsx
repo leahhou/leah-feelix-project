@@ -15,6 +15,11 @@ class ContactForm extends React.Component {
         companyName: "",
         phone: "",
         email: ""
+      },
+      invalidMessage: {
+        firstName: "",
+        lastName: "",
+        email: ""
       }
     };
   }
@@ -29,13 +34,10 @@ class ContactForm extends React.Component {
 
   handleAddContact = event => {
     event.preventDefault(); // to prevent refresh the page
-    const validated = this.validateContactForm();
-    // const validated = true;
-    validated &&
-      this.props.addNewContact({
-        ...this.state.newContact,
-        id: this.props.contactId
-      });
+    this.props.addNewContact({
+      ...this.state.newContact,
+      id: this.props.contactId
+    });
   };
 
   validateContactForm() {
@@ -113,9 +115,9 @@ class ContactForm extends React.Component {
           label="Email"
           handleInputChange={this.handleInputChange}
         ></Input>
-        {/* <Input type="submit" value="save"></Input> */}
+        <input type="submit" value="save"></input>
         <Button
-          type="primary"
+          buttonType="primary"
           text="Save"
           handleClick={this.handleAddContact}
         ></Button>

@@ -4,15 +4,17 @@ import classNames from "classnames";
 
 class Button extends React.Component {
   render() {
-    const type = this.props.type;
+    const buttonType = this.props.buttonType;
     const text = this.props.text;
+    const type = this.props.type;
     return (
       <button
+        type={type}
         onClick={event => {
           this.props.handleClick(event);
         }}
         name={text}
-        className={classNames(styles.button, styles[type])}
+        className={classNames(styles.button, styles[buttonType])}
       >
         {text}
       </button>
