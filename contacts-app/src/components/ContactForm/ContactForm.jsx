@@ -36,6 +36,10 @@ class ContactForm extends React.Component {
     event.preventDefault(); // to prevent refresh the page
     this.validateContactForm();
     const { firstName, lastName, email } = this.state.invalidMessage;
+    console.log(this.state.invalidMessage);
+    console.log(firstName === "");
+    console.log(lastName === "");
+    console.log(email === "");
     // firstName === "" &&
     //   lastName === "" &&
     //   email === "" &&
@@ -47,64 +51,53 @@ class ContactForm extends React.Component {
 
   validateContactForm() {
     const { firstName, lastName, email } = this.state.newContact;
+    //regex for validate email with @, domain and no space.
     const isEmailInvalid = /^\S+@\S+\.\S+$/.exec(email);
-    // this.setState({
-    //   invalidMessage: {
-    //     firstName: firstName.trim() === "" ? "First name cannot be empty" : "",
-    //     lastName: lastName.trim() === "" ? "Last name cannot be empty" : "",
-    //     email: !isEmailInvalid ? "Invalid Email" : ""
-    //   }
-    // });
-    if (firstName.trim() === "") {
-      this.setState(
-        {
-          ...this.state.invalidMessage,
-          invalidMessage: {
-            firstName: "xxx"
-          }
-        },
-        () => {
-          console.log(
-            this.state.invalidMessage.firstName + "check first name",
-            this.state.invalidMessage
-          );
-        }
-      );
-    }
-    if (lastName.trim() === "") {
-      this.setState(
-        {
-          ...this.state.invalidMessage,
-          invalidMessage: {
-            lastName: "xxx"
-          }
-        },
-        () => {
-          console.log(
-            this.state.invalidMessage.firstName + "check first name",
-            this.state.invalidMessage
-          );
-        }
-      );
-    }
-    // if (!isEmailInvalid) {
-    //   this.setState({
-    //     invalidMessage: {
-    //       ...this.state.invalidMessage,
-    //       email: "Invalid Email"
+    this.setState({
+      invalidMessage: {
+        firstName: firstName.trim() === "" ? "First name cannot be empty" : "",
+        lastName: lastName.trim() === "" ? "Last name cannot be empty" : "",
+        email: !isEmailInvalid ? "Invalid Email" : ""
+      }
+    });
+
+    //Comments below are lesson learnt to use previousState when calling
+    // setState multiple times in 1 function coz it might lead to competing state updates,
+    // thus, not update state as expected.
+    // if (firstName.trim() === "") {
+    //   this.setState(
+    //     prevState => ({
+    //       invalidMessage: {
+    //         ...prevState.invalidMessage,
+    //         firstName: "First Name cannot be empty"
+    //       }
+    //     }),
+    //     () => {
+    //       console.log("check first name", this.state.invalidMessage);
     //     }
-    //   });
-    //   console.log(
-    //     this.state.invalidMessage.email + "email",
-    //     this.state.invalidMessage
     //   );
     // }
-    // console.log(this.state.invalidMessage.firstName + "none");
+    // if (lastName.trim() === "") {
+    //   this.setState(
+    //     prevState => ({
+    //       invalidMessage: {
+    //         ...prevState.invalidMessage,
+    //         lastName: "First Name cannot be empty"
+    //       }
+    //     }),
+    //     () => {
+    //       console.log("check last name", this.state.invalidMessage);
+    //     }
+    //   );
+    // }
   }
 
   render() {
     return (
       <form className={`${styles.card} ${styles["card--form"]}`}>
+        {this.state.invalidMessage.firstName}
+        {this.state.invalidMessage.lastName}
+        {this.state.invalidMessage.email}
         <Input
           htmlFor="firstName"
           type="text"
