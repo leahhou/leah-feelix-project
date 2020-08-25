@@ -34,48 +34,72 @@ class ContactForm extends React.Component {
 
   handleAddContact = event => {
     event.preventDefault(); // to prevent refresh the page
-    this.props.addNewContact({
-      ...this.state.newContact,
-      id: this.props.contactId
-    });
+    this.validateContactForm();
+    const { firstName, lastName, email } = this.state.invalidMessage;
+    // firstName === "" &&
+    //   lastName === "" &&
+    //   email === "" &&
+    //   this.props.addNewContact({
+    //     ...this.state.newContact,
+    //     id: this.props.contactId
+    //   });
   };
 
   validateContactForm() {
     const { firstName, lastName, email } = this.state.newContact;
     const isEmailInvalid = /^\S+@\S+\.\S+$/.exec(email);
+    // this.setState({
+    //   invalidMessage: {
+    //     firstName: firstName.trim() === "" ? "First name cannot be empty" : "",
+    //     lastName: lastName.trim() === "" ? "Last name cannot be empty" : "",
+    //     email: !isEmailInvalid ? "Invalid Email" : ""
+    //   }
+    // });
     if (firstName.trim() === "") {
-      const invalidFirstName = document.getElementsByClassName("firstName");
-      this.displayRequiredFieldMessage(invalidFirstName[0]);
-      return false;
+      this.setState(
+        {
+          ...this.state.invalidMessage,
+          invalidMessage: {
+            firstName: "xxx"
+          }
+        },
+        () => {
+          console.log(
+            this.state.invalidMessage.firstName + "check first name",
+            this.state.invalidMessage
+          );
+        }
+      );
     }
     if (lastName.trim() === "") {
-      const invalidLastName = document.getElementsByClassName("lastName");
-      this.displayRequiredFieldMessage(invalidLastName[0]);
-      return false;
+      this.setState(
+        {
+          ...this.state.invalidMessage,
+          invalidMessage: {
+            lastName: "xxx"
+          }
+        },
+        () => {
+          console.log(
+            this.state.invalidMessage.firstName + "check first name",
+            this.state.invalidMessage
+          );
+        }
+      );
     }
-    if (isEmailInvalid === null) {
-      const invalidEmail = document.getElementsByClassName("email");
-      invalidEmail[0].innerHTML = "Email is in invalid form. ";
-      return false;
-    }
-    // if (
-    //   firstName.trim() === "" ||
-    //   lastName.trim() === "" ||
-    //   isEmailInvalid === null
-    // ) {
-    //   const invalidFirstName = document.getElementsByClassName("firstName");
-    //   const invalidLastName = document.getElementsByClassName("lastName");
-    //   const invalidEmail = document.getElementsByClassName("email");
-    //   this.displayRequiredFieldMessage(invalidFirstName[0]);
-    //   this.displayRequiredFieldMessage(invalidLastName[0]);
-    //   invalidEmail[0].innerHTML = "Email is in invalid form. ";
-    //   return false;
+    // if (!isEmailInvalid) {
+    //   this.setState({
+    //     invalidMessage: {
+    //       ...this.state.invalidMessage,
+    //       email: "Invalid Email"
+    //     }
+    //   });
+    //   console.log(
+    //     this.state.invalidMessage.email + "email",
+    //     this.state.invalidMessage
+    //   );
     // }
-    return true;
-  }
-
-  displayRequiredFieldMessage(element) {
-    element.innerHTML = "This field cannot be empty.";
+    // console.log(this.state.invalidMessage.firstName + "none");
   }
 
   render() {
@@ -85,6 +109,7 @@ class ContactForm extends React.Component {
           htmlFor="firstName"
           type="text"
           label="First Name"
+          invalidMessage={this.state.invalidMessage.firstName}
           handleInputChange={this.handleInputChange}
         ></Input>
 
@@ -92,6 +117,7 @@ class ContactForm extends React.Component {
           htmlFor="lastName"
           type="text"
           label="Last Name"
+          invalidMessage={this.state.invalidMessage.lastName}
           handleInputChange={this.handleInputChange}
         ></Input>
 
@@ -113,9 +139,9 @@ class ContactForm extends React.Component {
           htmlFor="email"
           type="email"
           label="Email"
+          invalidMessage={this.state.invalidMessage.email}
           handleInputChange={this.handleInputChange}
         ></Input>
-        <input type="submit" value="save"></input>
         <Button
           buttonType="primary"
           text="Save"

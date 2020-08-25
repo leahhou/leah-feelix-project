@@ -3,9 +3,6 @@ import styles from "./Header.module.css";
 import Button from "./../Button/Button";
 
 class Header extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div className={styles.base}>

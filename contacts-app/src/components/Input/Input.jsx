@@ -6,6 +6,7 @@ class Input extends React.Component {
     const label = this.props.label;
     const type = this.props.type;
     const id = this.props.htmlFor;
+    const invalidMessage = this.props.invalidMessage;
     // const id = this.props.htmlFor || shortId.generate();
     return (
       <>
@@ -19,7 +20,7 @@ class Input extends React.Component {
           onChange={this.props.handleInputChange}
           value={this.props.value}
         ></input>
-        <span className={id}></span>
+        <span className={id}>{invalidMessage}</span>
       </>
     );
   }
