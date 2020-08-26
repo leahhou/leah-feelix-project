@@ -37,9 +37,9 @@ class ContactForm extends React.Component {
     this.validateContactForm();
     const { firstName, lastName, email } = this.state.invalidMessage;
     console.log(this.state.invalidMessage);
-    console.log(firstName === "");
-    console.log(lastName === "");
-    console.log(email === "");
+    // console.log(firstName === "");
+    // console.log(lastName === "");
+    // console.log(email === "");
     // firstName === "" &&
     //   lastName === "" &&
     //   email === "" &&
@@ -53,12 +53,17 @@ class ContactForm extends React.Component {
     const { firstName, lastName, email } = this.state.newContact;
     //regex for validate email with @, domain and no space.
     const isEmailInvalid = /^\S+@\S+\.\S+$/.exec(email);
-    this.setState({
-      invalidMessage: {
-        firstName: firstName.trim() === "" ? "First name cannot be empty" : "",
-        lastName: lastName.trim() === "" ? "Last name cannot be empty" : "",
-        email: !isEmailInvalid ? "Invalid Email" : ""
-      }
+    const isFirstNameValid = firstName.trim() === "";
+    const isEmailValid = false;
+    this.setState(() => {
+      return {
+        invalidMessage: {
+          firstName:
+            firstName.trim() === "" ? "First name cannot be empty" : "",
+          lastName: lastName.trim() === "" ? "Last name cannot be empty" : "",
+          email: !isEmailInvalid ? "Invalid Email" : ""
+        }
+      };
     });
 
     //Comments below are lesson learnt to use previousState when calling
@@ -95,9 +100,7 @@ class ContactForm extends React.Component {
   render() {
     return (
       <form className={`${styles.card} ${styles["card--form"]}`}>
-        {this.state.invalidMessage.firstName}
-        {this.state.invalidMessage.lastName}
-        {this.state.invalidMessage.email}
+        {console.log(this.state.invalidMessage)}
         <Input
           htmlFor="firstName"
           type="text"
