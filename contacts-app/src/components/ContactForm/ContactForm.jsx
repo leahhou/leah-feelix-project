@@ -34,73 +34,36 @@ class ContactForm extends React.Component {
 
   handleAddContact = event => {
     event.preventDefault(); // to prevent refresh the page
-    this.validateContactForm();
-    const { firstName, lastName, email } = this.state.invalidMessage;
-    console.log(this.state.invalidMessage);
-    // console.log(firstName === "");
-    // console.log(lastName === "");
-    // console.log(email === "");
-    // firstName === "" &&
-    //   lastName === "" &&
-    //   email === "" &&
-    //   this.props.addNewContact({
-    //     ...this.state.newContact,
-    //     id: this.props.contactId
-    //   });
+    const isContactFormInvalid = this.validateContactForm();
+    !isContactFormInvalid &&
+      this.props.addNewContact({
+        ...this.state.newContact,
+        id: this.props.contactId
+      });
   };
 
   validateContactForm() {
     const { firstName, lastName, email } = this.state.newContact;
     //regex for validate email with @, domain and no space.
-    const isEmailInvalid = /^\S+@\S+\.\S+$/.exec(email);
-    const isFirstNameValid = firstName.trim() === "";
-    const isEmailValid = false;
-    this.setState(() => {
-      return {
-        invalidMessage: {
-          firstName:
-            firstName.trim() === "" ? "First name cannot be empty" : "",
-          lastName: lastName.trim() === "" ? "Last name cannot be empty" : "",
-          email: !isEmailInvalid ? "Invalid Email" : ""
-        }
-      };
+    const isEmailInvalid = /^\S+@\S+\.\S+$/.exec(email) === null;
+    const isFirstNameInvalid = firstName.trim() === "";
+    const isLastNameInvalid = lastName.trim() === "";
+    this.setState({
+      invalidMessage: {
+        firstName: isFirstNameInvalid ? "First name cannot be empty" : "",
+        lastName: isLastNameInvalid ? "Last name cannot be empty" : "",
+        email: isEmailInvalid ? "Invalid Email" : ""
+      }
     });
-
-    //Comments below are lesson learnt to use previousState when calling
-    // setState multiple times in 1 function coz it might lead to competing state updates,
-    // thus, not update state as expected.
-    // if (firstName.trim() === "") {
-    //   this.setState(
-    //     prevState => ({
-    //       invalidMessage: {
-    //         ...prevState.invalidMessage,
-    //         firstName: "First Name cannot be empty"
-    //       }
-    //     }),
-    //     () => {
-    //       console.log("check first name", this.state.invalidMessage);
-    //     }
-    //   );
-    // }
-    // if (lastName.trim() === "") {
-    //   this.setState(
-    //     prevState => ({
-    //       invalidMessage: {
-    //         ...prevState.invalidMessage,
-    //         lastName: "First Name cannot be empty"
-    //       }
-    //     }),
-    //     () => {
-    //       console.log("check last name", this.state.invalidMessage);
-    //     }
-    //   );
-    // }
+    if (isFirstNameInvalid && isLastNameInvalid && isEmailInvalid) return true;
+    if (isFirstNameInvalid) return true;
+    if (isLastNameInvalid) return true;
+    if (isEmailInvalid) return true;
   }
 
   render() {
     return (
       <form className={`${styles.card} ${styles["card--form"]}`}>
-        {console.log(this.state.invalidMessage)}
         <Input
           htmlFor="firstName"
           type="text"
@@ -151,3 +114,33 @@ class ContactForm extends React.Component {
 export default ContactForm;
 
 const defaultImage = avatar1;
+
+//Comments below are lesson learnt to use previousState when calling
+// setState multiple times in 1 function(validateContactForm) coz it might lead to competing state updates,
+// thus, not update state as expected.
+// if (firstName.trim() === "") {
+//   this.setState(
+//     prevState => ({
+//       invalidMessage: {
+//         ...prevState.invalidMessage,
+//         firstName: "First Name cannot be empty"
+//       }
+//     }),
+//     () => {
+//       console.log("check first name", this.state.invalidMessage);
+//     }
+//   );
+// }
+// if (lastName.trim() === "") {
+//   this.setState(
+//     prevState => ({
+//       invalidMessage: {
+//         ...prevState.invalidMessage,
+//         lastName: "First Name cannot be empty"
+//       }
+//     }),
+//     () => {
+//       console.log("check last name", this.state.invalidMessage);
+//     }
+//   );
+// }
