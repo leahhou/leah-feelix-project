@@ -19,7 +19,15 @@ class ContactList extends React.Component {
 }
 
 ContactList.propTypes = {
-  contacts: PropTypes.array
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phone: PropTypes.string,
+      company: PropTypes.string
+    })
+  )
 };
 
 export default ContactList;

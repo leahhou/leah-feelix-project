@@ -64,8 +64,9 @@ class Contact extends React.Component {
 Contact.propTypes = {
   contact: PropTypes.shape({
     firstName: PropTypes.string.isRequired,
-    lastName: PropTypes.string,
-    email: PropTypes.string,
+    lastName: PropTypes.string.isRequired,
+    company: PropTypes.string,
+    email: PropTypes.string.isRequired,
     phone: PropTypes.string
     // }).isRequired
   })

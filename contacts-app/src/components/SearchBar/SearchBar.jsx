@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./SearchBar.module.css";
+import PropTypes from "prop-types";
 
 class SearchBar extends React.Component {
   render() {
@@ -21,5 +22,10 @@ class SearchBar extends React.Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  filterText: PropTypes.string,
+  onFilterChange: PropTypes.func
+};
 
 export default SearchBar;

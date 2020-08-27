@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Input.module.css";
+import PropTypes from "prop-types";
 
 class Input extends React.Component {
   render() {
@@ -26,4 +27,11 @@ class Input extends React.Component {
   }
 }
 
+Input.propTypes = {
+  htmlFor: PropTypes.func,
+  type: PropTypes.string,
+  label: PropTypes.string,
+  invalidMessage: PropTypes.string,
+  handleInputChange: PropTypes.func
+};
 export default Input;

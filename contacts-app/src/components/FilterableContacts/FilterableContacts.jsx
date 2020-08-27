@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./../Header/Header";
 import SearchBar from "./../SearchBar/SearchBar";
 import ContactList from "./../ContactList/ContactList";
+import PropTypes from "prop-types";
 
 class FilterableContacts extends React.Component {
   constructor(props) {
@@ -48,5 +49,16 @@ class FilterableContacts extends React.Component {
     );
   }
 }
-
+FilterableContacts.propTypes = {
+  contactList: PropTypes.arrayOf(
+    PropTypes.shape({
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      phone: PropTypes.string,
+      company: PropTypes.string
+    })
+  ),
+  showContent: PropTypes.func
+};
 export default FilterableContacts;

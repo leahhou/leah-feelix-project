@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./../Header/Header";
 import ContactForm from "./../ContactForm/ContactForm";
+import PropTypes from "prop-types";
 
 class NewContact extends React.Component {
   render() {
@@ -20,5 +21,9 @@ class NewContact extends React.Component {
     );
   }
 }
-
+NewContact.propTypes = {
+  addNewContact: PropTypes.func,
+  contactId: PropTypes.number,
+  showContent: PropTypes.func
+};
 export default NewContact;

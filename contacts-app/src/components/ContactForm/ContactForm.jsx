@@ -3,6 +3,7 @@ import Button from "../Button/Button";
 import Input from "../Input/Input";
 import styles from "./ContactForm.module.css";
 import avatar1 from "./../../avatar-1.png";
+import PropTypes from "prop-types";
 
 class ContactForm extends React.Component {
   constructor(props) {
@@ -70,7 +71,7 @@ class ContactForm extends React.Component {
           label="First Name"
           invalidMessage={this.state.invalidMessage.firstName}
           handleInputChange={this.handleInputChange}
-        ></Input>
+        />
 
         <Input
           htmlFor="lastName"
@@ -78,21 +79,21 @@ class ContactForm extends React.Component {
           label="Last Name"
           invalidMessage={this.state.invalidMessage.lastName}
           handleInputChange={this.handleInputChange}
-        ></Input>
+        />
 
         <Input
           htmlFor="companyName"
           type="text"
           label="Company"
           handleInputChange={this.handleInputChange}
-        ></Input>
+        />
 
         <Input
           htmlFor="phone"
           type="tel"
           label="Phone number"
           handleInputChange={this.handleInputChange}
-        ></Input>
+        />
 
         <Input
           htmlFor="email"
@@ -100,7 +101,7 @@ class ContactForm extends React.Component {
           label="Email"
           invalidMessage={this.state.invalidMessage.email}
           handleInputChange={this.handleInputChange}
-        ></Input>
+        />
         <Button
           buttonType="primary"
           text="Save"
@@ -110,6 +111,11 @@ class ContactForm extends React.Component {
     );
   }
 }
+
+ContactForm.propTypes = {
+  addNewContact: PropTypes.func,
+  contactId: PropTypes.number
+};
 
 export default ContactForm;
 

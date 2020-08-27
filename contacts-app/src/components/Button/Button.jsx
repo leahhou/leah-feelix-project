@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Button.module.css";
 import classNames from "classnames";
+import PropTypes from "prop-types";
 
 class Button extends React.Component {
   render() {
@@ -21,5 +22,11 @@ class Button extends React.Component {
     );
   }
 }
+
+Button.propTypes = {
+  buttonType: PropTypes.string,
+  text: PropTypes.string,
+  handleClick: PropTypes.func
+};
 
 export default Button;
