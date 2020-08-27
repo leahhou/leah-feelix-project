@@ -20,6 +20,7 @@ class ContactForm extends React.Component {
       invalidMessage: {
         firstName: "",
         lastName: "",
+        phone: "",
         email: ""
       }
     };
@@ -44,21 +45,34 @@ class ContactForm extends React.Component {
   };
 
   validateContactForm() {
-    const { firstName, lastName, email } = this.state.newContact;
+    const { firstName, lastName, phone, email } = this.state.newContact;
     //regex for validate email with @, domain and no space.
     const isEmailInvalid = /^\S+@\S+\.\S+$/.exec(email) === null;
     const isFirstNameInvalid = firstName.trim() === "";
     const isLastNameInvalid = lastName.trim() === "";
+    //regex for validate email xxx-xxx-xxxx  or xxx xxx xxxx format
+    const phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    const isPhoneInvalid = !phoneRegex.test(phone);
     this.setState({
       invalidMessage: {
         firstName: isFirstNameInvalid ? "First name cannot be empty" : "",
         lastName: isLastNameInvalid ? "Last name cannot be empty" : "",
+        phone: isPhoneInvalid
+          ? "Invalid phone number, please enter number in xxx-xxx-xxxx or xxx xxx xxxx format"
+          : "",
         email: isEmailInvalid ? "Invalid Email" : ""
       }
     });
-    if (isFirstNameInvalid && isLastNameInvalid && isEmailInvalid) return true;
+    if (
+      isFirstNameInvalid &&
+      isLastNameInvalid &&
+      isPhoneInvalid &&
+      isEmailInvalid
+    )
+      return true;
     if (isFirstNameInvalid) return true;
     if (isLastNameInvalid) return true;
+    if (isPhoneInvalid) return true;
     if (isEmailInvalid) return true;
   }
 
@@ -92,6 +106,7 @@ class ContactForm extends React.Component {
           htmlFor="phone"
           type="tel"
           label="Phone number"
+          invalidMessage={this.state.invalidMessage.phone}
           handleInputChange={this.handleInputChange}
         />
 

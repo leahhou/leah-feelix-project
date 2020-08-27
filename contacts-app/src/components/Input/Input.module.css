@@ -10,7 +10,7 @@
   width: 60%;
 }
 .invalidMessage {
-  color: tomato;
-  font-size: 80%;
+  color: rgb(247, 121, 99);
+  font-size: 85%;
   padding-bottom: 10px;
 }

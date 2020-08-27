@@ -21,7 +21,7 @@ npm start
 1. Create My contacts Page (Done)
 2. Add filter function (Done)
 3. Create New Contact Page (Done)
-4. Form Validation for first name(required), last name(requied) and email(valid format) is added to New Contact Page (Done)
+4. Form Validation for first name(required), last name(requied), phone(valid format) and email(valid format) is added to New Contact Page (Done)
 5. Page Change by button toggle function. (Done)
 6. Add Unit Tests (In progress)
 

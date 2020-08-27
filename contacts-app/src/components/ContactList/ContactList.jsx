@@ -24,7 +24,7 @@ ContactList.propTypes = {
       firstName: PropTypes.string.isRequired,
       lastName: PropTypes.string.isRequired,
       email: PropTypes.string.isRequired,
-      phone: PropTypes.string,
+      phone: PropTypes.string.isRequired,
       company: PropTypes.string
     })
   )

@@ -67,7 +67,7 @@ Contact.propTypes = {
     lastName: PropTypes.string.isRequired,
     company: PropTypes.string,
     email: PropTypes.string.isRequired,
-    phone: PropTypes.string
+    phone: PropTypes.string.isRequired
     // }).isRequired
   })
 };

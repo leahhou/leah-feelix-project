@@ -59,7 +59,7 @@ const data = [
     firstName: "Chaya",
     lastName: "Philip",
     companyName: "Trescothik and Co",
-    phone: "4112 232 089",
+    phone: "411-223-2089",
     email: "markzandrapatterson@gmail.com"
   },
   {
@@ -68,7 +68,7 @@ const data = [
     firstName: "Gregory",
     lastName: "Hill",
     companyName: "Torrance Brothers",
-    phone: "4112 232 089",
+    phone: "411-223-2089",
     email: "mark_patterson_newyork@gmail.com"
   },
   {
@@ -77,7 +77,7 @@ const data = [
     firstName: "Jamie",
     lastName: "Mcnally",
     companyName: "Chloe Associates",
-    phone: "4112 232 089",
+    phone: "411-223-2089",
     email: "zandra.the.chandra@gmail.com"
   }
 ];
