@@ -28,7 +28,14 @@ class ContactForm extends React.Component {
 
   handleInputChange = event => {
     const update = {};
-    update[event.target.id] = event.target.value;
+    const inputId = event.target.id;
+    const inputValue = event.target.value;
+    if (inputId === "First Name" || "Last Name") {
+      update[inputId] =
+        inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
+    } else {
+      update[inputId] = inputValue;
+    }
     this.setState({
       newContact: { ...this.state.newContact, ...update }
     });
