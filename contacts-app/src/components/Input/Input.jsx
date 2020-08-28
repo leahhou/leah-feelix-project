@@ -32,6 +32,7 @@ Input.propTypes = {
   htmlFor: PropTypes.string,
   type: PropTypes.string,
   label: PropTypes.string,
+  value: PropTypes.string,
   invalidMessage: PropTypes.string,
   handleInputChange: PropTypes.func
 };

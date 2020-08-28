@@ -84,6 +84,13 @@ class ContactForm extends React.Component {
   }
 
   render() {
+    const {
+      firstName,
+      lastName,
+      company,
+      phone,
+      email
+    } = this.state.newContact;
     return (
       <form className={`${styles.card} ${styles["card--form"]}`}>
         <Input
@@ -92,6 +99,7 @@ class ContactForm extends React.Component {
           label="First Name"
           invalidMessage={this.state.invalidMessage.firstName}
           handleInputChange={this.handleInputChange}
+          value={firstName}
         />
 
         <Input
@@ -100,6 +108,7 @@ class ContactForm extends React.Component {
           label="Last Name"
           invalidMessage={this.state.invalidMessage.lastName}
           handleInputChange={this.handleInputChange}
+          value={lastName}
         />
 
         <Input
@@ -107,6 +116,7 @@ class ContactForm extends React.Component {
           type="text"
           label="Company"
           handleInputChange={this.handleInputChange}
+          value={company}
         />
 
         <Input
@@ -115,6 +125,7 @@ class ContactForm extends React.Component {
           label="Phone number"
           invalidMessage={this.state.invalidMessage.phone}
           handleInputChange={this.handleInputChange}
+          value={phone}
         />
 
         <Input
@@ -123,11 +134,13 @@ class ContactForm extends React.Component {
           label="Email"
           invalidMessage={this.state.invalidMessage.email}
           handleInputChange={this.handleInputChange}
+          value={phone}
         />
         <Button
           buttonType="primary"
           text="Save"
           handleClick={this.handleAddContact}
+          value={email}
         ></Button>
       </form>
     );
