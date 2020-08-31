@@ -1,7 +1,5 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-//why do I need to import agin while setupTests.js already import?
-import "@testing-library/jest-dom/extend-expect";
 import Header from "../Header";
 
 describe("Header", () => {
