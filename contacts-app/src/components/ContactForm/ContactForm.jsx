@@ -134,7 +134,7 @@ class ContactForm extends React.Component {
           label="Email"
           invalidMessage={this.state.invalidMessage.email}
           handleInputChange={this.handleInputChange}
-          value={phone}
+          value={email}
         />
         <Button
           buttonType="primary"
