@@ -70,17 +70,13 @@ class ContactForm extends React.Component {
         email: isEmailInvalid ? "Invalid Email" : ""
       }
     });
-    if (
-      isFirstNameInvalid &&
-      isLastNameInvalid &&
-      isPhoneInvalid &&
+
+    return (
+      isFirstNameInvalid ||
+      isLastNameInvalid ||
+      isPhoneInvalid ||
       isEmailInvalid
-    )
-      return true;
-    if (isFirstNameInvalid) return true;
-    if (isLastNameInvalid) return true;
-    if (isPhoneInvalid) return true;
-    if (isEmailInvalid) return true;
+    );
   }
 
   render() {

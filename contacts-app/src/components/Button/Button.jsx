@@ -24,7 +24,7 @@ class Button extends React.Component {
 }
 
 Button.propTypes = {
-  buttonType: PropTypes.string,
+  buttonType: PropTypes.oneOf(["primary", "inactive"]),
   text: PropTypes.string,
   handleClick: PropTypes.func
 };
