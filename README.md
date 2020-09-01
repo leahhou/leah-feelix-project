@@ -7,6 +7,10 @@
 3. run app locally:
 
 ```
+npm install
+```
+
+```
 npm start
 ```
 
