@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./SearchBar.module.css";
-
+import PropTypes from "prop-types";
+import shortId from "shortid";
 class SearchBar extends React.Component {
   render() {
     return (
@@ -11,7 +12,7 @@ class SearchBar extends React.Component {
         <input
           className={styles.input}
           type="text"
-          id="search"
+          id={shortId.generate()}
           value={this.props.filterText}
           onChange={event => {
             this.props.onFilterChange(event.target.value);
@@ -21,5 +22,10 @@ class SearchBar extends React.Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  filterText: PropTypes.string,
+  onFilterChange: PropTypes.func
+};
 
 export default SearchBar;
